@@ -14,11 +14,11 @@ Ventana de juego:
 """
 
 def main():
-    """
+
     SeleccionJugador().pantalla()
 
-    """
-    Ahorcado().iniciarPartida("nombreJugador")
+
+   # Ahorcado().iniciarPartida("nombreJugador")
 
 if __name__ == '__main__':
     main()

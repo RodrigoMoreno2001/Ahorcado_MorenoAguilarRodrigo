@@ -1,3 +1,5 @@
+from contextlib import nullcontext
+
 import mysql.connector
 class Conexion:
 
@@ -28,17 +30,14 @@ class Conexion:
       if conexion:
         conexion.close()
 
-  def listar(self,sentencia):
+  def crearUsuario(self,nombreUsuario):
       conexion = None
       cursor = None
       try:
-          conexion = self.conn()
+          conexion=self.conn()
           cursor = conexion.cursor()
-          cursor.execute(sentencia)
-
-          for e in cursor:
-              print(e)
-
+          cursor.execute("INSERT INTO USUARIO (nombre) VALUES (%s)",(nombreUsuario,))
+          conexion.commit()
       except Exception as e:
           print(f"ERROR: {e}")
       finally:
@@ -46,3 +45,23 @@ class Conexion:
               cursor.close()
           if conexion:
               conexion.close()
+
+  def UsuarioExiste(self,nombreUsuario):
+
+    conexion=None
+    cursor=None
+    try:
+        conexion=self.conn()
+        cursor = conexion.cursor()
+        cursor.execute("SELECT nombre FROM Usuario WHERE nombre=%s",(nombreUsuario,))
+
+        return len(cursor.fetchall())>0
+
+    except Exception as e:
+      print(f"ERROR: {e}")
+
+    finally:
+      if cursor:
+        cursor.close()
+      if conexion:
+        conexion.close()
