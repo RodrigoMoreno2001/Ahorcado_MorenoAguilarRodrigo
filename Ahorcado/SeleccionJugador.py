@@ -18,12 +18,10 @@ class SeleccionJugador:
     def manejarUsuario(self,nombreJugador):
         db = Conexion()
         if not db.UsuarioExiste(nombreJugador):
-            print("hola")
             db.crearUsuario(nombreJugador)
 
     def iniciarJuego(self,nombreJugador,root):
         self.manejarUsuario(nombreJugador)
-
         root.destroy()
-        ahorcado=Ahorcado()
-        ahorcado.iniciarPartida(nombreJugador)
+        ahorcado=Ahorcado(nombreJugador)
+        ahorcado.iniciarVista()
