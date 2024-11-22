@@ -1,5 +1,3 @@
-from Ahorcado import Ahorcado
-from BBDD import Conexion
 from SeleccionJugador import SeleccionJugador
 
 def main():
