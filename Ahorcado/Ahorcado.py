@@ -15,13 +15,14 @@ class Ahorcado:
 
         # Algunos elementos de la vista los he tenido que declarar a nivel de clase
         # para hacerlos accesible de una forma más cómoda...
+
         self.root = tk.Tk()
         self.imagen = ""
         self.ganadasLabel= tk.Label(self.root, bg="#482b56", fg="white", font=("verdana", 16))
         self.perdidasLabel=tk.Label(self.root, bg="#482b56", fg="white", font=("verdana", 16))
         self.tematicaLabel=tk.Label(self.root,bg="#482b56",fg="white",font=("verdana",16))
-        self.palabraLabel= tk.Label(self.root, text="_ _ _ _ _ _", bg="#482b56", fg="white", font=("verdana", 20))
-        self.letrasIntroducidasLabel= tk.Label(self.root, text="H, M, E, A", bg="#482b56", fg="white", font=("verdana", 16))
+        self.palabraLabel= tk.Label(self.root, bg="#482b56", fg="white", font=("verdana", 20))
+        self.letrasIntroducidasLabel= tk.Label(self.root, bg="#482b56", fg="white", font=("verdana", 16))
         self.imagenLabel = tk.Label(self.root, image=self.imagen)
         self.imagen = tk.PhotoImage(file=f"res/a{self.intentos}.png")
 

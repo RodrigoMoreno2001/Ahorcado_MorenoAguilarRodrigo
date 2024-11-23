@@ -1,0 +1,5 @@
+Usuario: (nombre(PK)) 
+
+Palabra: (idPalabra(PK), palabra, categoria) 
+
+Partida: (idPartida(PK), resultado, nombre(FK), idPalabra(FK))
